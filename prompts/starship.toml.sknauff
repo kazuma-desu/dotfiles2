@@ -1,0 +1,203 @@
+format = """
+[$os](bg:seperators fg:white)\
+[](bg:background fg:seperators)\
+([$username](bg:background)[](bg:background fg:seperators))\
+([$directory](bg:background fg:blue))\
+([](bg:background fg:seperators)[$git_branch$git_status$git_commit](bg:background fg:yellow))\
+([](bg:background fg:seperators)[$c$cmake$elixir$elm$golang$gradle$haskell$java$julia$nodejs$nim$rust$python$helm$lua$rlang$swift$scala](bg:background fg:blue))\
+([](bg:background fg:seperators)[$docker_context$sudo](bg:background))\
+[ ](fg:background)\
+"""
+
+right_format = """(
+[](fg:background)\
+([$status](bg:background)[](bg:background fg:seperators))\
+([$cmd_duration](bg:background fg:yellow)[](bg:background fg:seperators))\
+([$conda](bg:background fg:blue)[](bg:background fg:seperators))\
+[$time](bg:background)\
+([󰇙](bg:background fg:seperators)[$hostname](bg:background fg:red))\
+)
+"""
+
+palette = 'basic'
+[palettes.basic]
+white = '#222222'
+background = '#444444'
+seperators = '#999999'
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = false
+style_user = "bg:background"
+style_root = "fg:red bold bg:background"
+format = '([ $user ]($style))'
+disabled = false
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:background"
+format = " $symbol"
+disabled = false # Disabled by default
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
+[directory]
+format = " $path "
+truncation_length = 99
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " 󰈙 "
+"Downloads" = "  "
+"Music" = "  "
+"Pictures" = "  "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = " 󰈙 "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important 󰈙 " = " 󰈙 "
+
+[c]
+symbol = " "
+format = ' $symbol ($version) '
+
+[docker_context]
+symbol = " "
+format = ' $symbol $context  $path'
+
+[elixir]
+symbol = " "
+format = ' $symbol ($version) '
+
+[elm]
+symbol = " "
+format = ' $symbol ($version) '
+
+[git_branch]
+symbol = ""
+format = ' $symbol $branch '
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+modified = "!${count}"
+untracked = "?${count}"
+staged = "+${count}"
+format = '$all_status$ahead_behind '
+
+[golang]
+symbol = " "
+format = ' $symbol ($version) '
+
+[gradle]
+format = ' $symbol ($version) '
+
+[haskell]
+symbol = " "
+format = ' $symbol ($version) '
+
+[java]
+symbol = " "
+format = ' $symbol ($version) '
+
+[julia]
+symbol = " "
+format = ' $symbol ($version) '
+
+[nodejs]
+symbol = ""
+format = ' $symbol ($version) '
+
+[nim]
+symbol = "󰆥 "
+format = ' $symbol ($version) '
+
+[rust]
+symbol = ""
+format = ' $symbol ($version) '
+
+[scala]
+symbol = " "
+format = ' $symbol ($version) '
+
+[python]
+detect_extensions = ['py']
+python_binary = 'python3'
+symbol = ' '
+format = ' ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) ) '
+
+[conda]
+format = '( $environment )'
+ignore_base = true
+
+[status]
+symbol = '✘'
+success_symbol = ''
+not_executable_symbol = ''
+not_found_symbol = '󰦀'
+sigint_symbol = '󱊈'
+signal_symbol = '󱐋'
+format = ' $symbol$signal_name$maybe_int '
+map_symbol = true
+disabled = false
+
+[time]
+disabled = false
+time_format = "%R" # https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html
+format = ' $time '
+
+[cmd_duration]
+format = ' $duration   '
+
+[hostname]
+ssh_only = true
+format = ' $hostname '
+# trim_at = '.companyname.com'
+disabled = false

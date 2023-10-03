@@ -1,0 +1,2 @@
+https://github.com/rxyhn/yoru/blob/041a2d7e5b44d5bbedec9664af31baff1ba5033b/misc/home/.config/starship/starship.toml
+https://github.com/starship/starship/blob/master/docs/.vuepress/public/presets/toml/gruvbox-rainbow.toml

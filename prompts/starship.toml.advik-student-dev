@@ -1,0 +1,104 @@
+# ~/.config/starship.toml
+#
+
+format = """
+[┌───────────────────>](bold red)
+[│](bold blue)$directory$python$package$cmd_duration$battery$shell$character
+[└─>](bold green) """
+
+add_newline = false
+
+[line_break]
+disabled = true
+
+[shell]
+fish_indicator = " FISH"
+bash_indicator = " 💾"
+zsh_indicator = " 🌈"
+unknown_indicator = " mystery shell"
+style = "bold red"
+disabled = false
+
+[character]
+error_symbol = "[✖](bold red) "
+
+[package]
+disabled = true
+
+[cmd_duration]
+min_time = 4
+show_milliseconds = false
+disabled = false
+style = "bold italic #FFFF00"
+format = " [$duration]($style)"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[directory]
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+
+[git_branch]
+format = " [$symbol$branch]($style) "
+symbol = "🍣 "
+style = "bold yellow"
+
+[git_commit]
+commit_hash_length = 8
+style = "bold white"
+
+[git_state]
+progress_divider = " of "
+
+[git_status]
+conflicted = "⚔️ "
+ahead = "🏎️ 💨 ×${count}"
+behind = "🐢 ×${count}"
+diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+untracked = "🛤️  ×${count}"
+stashed = "📦 "
+modified = "📝 ×${count}"
+staged = "🗃️  ×${count}"
+renamed = "📛 ×${count}"
+deleted = "🗑️  ×${count}"
+style = "bright-white"
+format = "$all_status$ahead_behind"
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+trim_at = "-"
+style = "bold dimmed red"
+disabled = false
+
+[julia]
+format = "<[$symbol$version]($style)> "
+symbol = "ஃ "
+style = "bold green"
+
+[memory_usage]
+format = "$symbol[${ram}]($style) "
+show_percentage = true
+threshold = 50
+style = "bold dimmed white"
+disabled = false
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[time]
+time_format = "%T"
+format = "$time($style) "
+style = "dimmed green"
+disabled = false
+
+[username]
+style_user = "bold dimmed blue"
+show_always = true

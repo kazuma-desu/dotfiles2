@@ -1,0 +1,20 @@
+Assuming you're on ZSH
+```sh
+#!/bin/zsh
+
+# Make zsh use word splitting as in bash
+setopt sh_word_split
+# Store the config files as elements of an array
+ConfigFiles=( $(ls <path to directory with the different configs>) )
+
+echo "Choose which prompt you want"
+
+for i in {1..$#ConfigFiles}; do
+    echo "[${i}] ${ConfigFiles[$i]}"
+done
+
+read choice
+
+# Replace the contents of the starship.toml file with the contents of the chosen prompt
+cat <path to directory with the different configs>/${ConfigFiles[choice]} > ~/.config/starship.toml
+```

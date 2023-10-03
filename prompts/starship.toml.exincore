@@ -1,0 +1,241 @@
+#{{#if starship.use_experimental_config}}
+#{{/if}}
+
+format = """
+$all\
+$line_break\
+$os\
+$shlvl\
+$shell\
+$character\
+"""
+
+right_format = """
+$status\
+$cmd_duration\
+$time\
+"""
+
+#:
+#:  Line 1
+#:
+
+#home = " "
+#eth = " "
+
+[directory]
+format = """
+[]($style)\
+[$path$read_only](inverted $style)\
+[]($style) \
+"""
+read_only = " "
+home_symbol = "~"
+#truncation_symbol = ""
+
+#[directory.substitutions]
+#"Documents" = " "
+#"Downloads" = " "
+#"Music" = " "
+#"Pictures" = " "
+
+[username]
+format = "[ $user]($style) "
+style_user = "bold blue"
+#show_always = true
+
+[hostname]
+format = "[ $hostname]($style) "
+style = "bold blue"
+#ssh_only = false
+
+[c]
+format = """
+[]($style)\
+[$name ](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+
+[container]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$name]($style) \
+"""
+symbol = "∈ "
+
+[git_branch]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$branch]($style)\
+"""
+symbol = " "
+
+[git_status]
+format = """
+[$all_status$ahead_behind]($style) \
+"""
+style = "bold purple"
+
+[java]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+symbol = " "
+#symbol = "☕"
+style = "#d75f70"
+
+[package]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+symbol = " "
+#symbol = "📦"
+#style = "bold blue"
+#style = "211"
+style = "215"
+
+[nodejs]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+
+[python]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+symbol = " "
+
+[rust]
+format = """
+[]($style)\
+[$symbol](inverted $style)\
+[](inverted $style)\
+[$version]($style) \
+"""
+version_format = "${raw}"
+symbol = " "
+#symbol = "🦀"
+
+[battery]
+format = """
+[]($style)\
+[$symbol$percentage](inverted $style)\
+[]($style) \
+"""
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 20
+style = "bold yellow"
+
+#:
+#:  Line 2
+#:
+
+[os]
+disabled = false
+
+[os.symbols]
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Gentoo = " "
+HardenedBSD = "ﲊ "
+Illumos = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = " "
+openSUSE = " "
+OracleLinux = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = " "
+Solus = "ﴱ "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = " "
+
+[shlvl]
+format = "[$symbol]($style)"
+# ≺ ≻ ⸱ ⋅ ꞏ • ◦
+symbol = "~"
+repeat = true
+threshold = 1
+style = "bold white"
+disabled = false
+
+[shell]
+fish_indicator = ""
+disabled = false
+
+[character]
+disabled = true
+
+#:
+#:  Right Prompt
+#:
+
+[status]
+format = """
+[]($style)\
+[$symbol$status](inverted $style)\
+[]($style) \
+"""
+disabled = false
+
+[cmd_duration]
+format = """
+[]($style)\
+[ $duration](inverted $style)\
+[]($style) \
+"""
+
+[time]
+format = """
+[]($style)\
+[ $time](inverted $style)\
+[]($style)\
+"""
+disabled = false
